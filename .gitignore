@@ -1,0 +1,24 @@
+# ---- 构建产物 ----
+build/
+.gradle/
+local.properties
+*.iml
+.idea/
+
+# ---- 签名与凭据（绝不外传）----
+*.keystore
+*.jks
+*.p12
+keystore.properties
+release.keystore
+
+# ---- 抓包与实验原始数据（不公开发布）----
+private/
+
+# ---- 第三方参考源码（各自主张版权，不作为本项目源码发布）----
+third_party/
+
+# ---- 临时文件 ----
+*.log
+*.tmp
+icon_preview.png

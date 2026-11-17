@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RosePods</string>
+    <string name="xposed_desc">弱水时砂 CERAMICS-U（琉璃U）耳机控制</string>
+    <string name="tile_label">RosePods</string>
+</resources>

@@ -1,0 +1,58 @@
+RosePods — 弱水时砂 CERAMICS-U 系统级控制模块
+Copyright (C) 2026 shiwushuifeng
+
+本项目是自由软件：你可以依据自由软件基金会发布的
+GNU General Public License 第 3 版（或你选择的任何更新版本）的条款
+再分发和/或修改它。
+
+本项目按"现状"提供，不附带任何担保，包括但不限于适销性或
+特定用途适用性的默示担保。详见 GNU General Public License。
+
+你应当已随本项目收到一份 GNU General Public License 的副本；
+如果没有，请访问 <https://www.gnu.org/licenses/gpl-3.0.html>。
+
+────────────────────────────────────────────────────────────
+完整许可文本
+────────────────────────────────────────────────────────────
+
+本项目采用 GNU General Public License v3.0（GPL-3.0）。
+
+GPL-3.0 的完整文本请见：
+  https://www.gnu.org/licenses/gpl-3.0.txt
+  https://www.gnu.org/licenses/gpl-3.0.html
+
+中文参考译本（非官方，仅辅助理解，以英文原文为准）：
+  https://www.gnu.org/licenses/translations.html
+
+> 分发要求提示：GPL-3.0 第 4、5、6 条要求分发者在分发本项目的二进制或
+> 修改版本时，同时提供完整对应源码（或书面提供源码的途径），并保留本
+> 许可文本与版权声明。本仓库已公开完整源码，满足该要求。
+
+────────────────────────────────────────────────────────────
+第三方代码与许可
+────────────────────────────────────────────────────────────
+
+本项目包含移植自下列开源项目的代码，其原始版权与许可如下：
+
+1. OppoPods — https://github.com/1812z/OppoPods
+   Copyright (C) 1812z, Leaf-lsgtky
+   License: GNU General Public License v3.0
+   使用范围：小米耳机原生设置页与蓝牙 HeadsetBinder 接管思路及部分实现
+   （`hook/MiuiHeadsetBridge.kt`、`hook/MiuiHeadsetFragmentHook.kt`
+   等文件的实现思路与部分代码）
+
+2. HyperVolumeAnc — https://github.com/zhhhyyyyyy/HyperVolumeAnc
+   Copyright (C) 2026 zhhhhyyyyyy
+   License: Apache License 2.0
+   使用范围：音量面板原生布局注入（`hook/hva/` 目录下的移植代码）
+   Apache-2.0 与 GPL-3.0 兼容；本项目对上述代码的修改以 GPL-3.0 分发。
+
+   HyperVolumeAnc 自身还包含来自以下 Apache-2.0 项目的代码，
+   其声明随 `hook/hva/` 一并保留：
+     - HyperChanger (https://github.com/ColdP/HyperChanger) — Apache-2.0
+     - AndroidLiquidGlass (https://github.com/Kyant0/AndroidLiquidGlass) — Apache-2.0
+
+3. 框架 API
+   libxposed API (https://github.com/libxposed/api) — Apache-2.0
+
+详见 NOTICE.md。

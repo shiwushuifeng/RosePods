@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 电池轮廓 -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
+        android:pathData="M4,8 h13 a3,3 0 0 1 3,3 v2 a3,3 0 0 1 -3,3 h-13 a3,3 0 0 1 -3,-3 v-2 a3,3 0 0 1 3,-3 z" />
+    <!-- 正极 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M21.6,10.6 h0.9 a1,1 0 0 1 1,1 v0.8 a1,1 0 0 1 -1,1 h-0.9z" />
+    <!-- 电量条 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M4,10 h6 v4 h-6z" />
+</vector>

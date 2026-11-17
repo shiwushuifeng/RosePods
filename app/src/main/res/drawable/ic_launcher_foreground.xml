@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  桌面图标前景：和 App 内页的 ic_buds_hero 同一套造型
+  （两只耳机 + 充电盒 + 缝线 + 指示灯），按自适应图标安全区等比收小。
+  原始设计在 ic_buds_hero.xml（viewport 120），这里换算到 108 并居中。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 左耳：圆头 -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M40,41 m-10.4,0 a10.4,10.4 0 1,0 20.8,0 a10.4,10.4 0 1,0 -20.8,0" />
+    <!-- 左耳：柄 -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M34.8,47 h10.4 a2.4,2.4 0 0 1 2.4,2.4 v8.4 a2.4,2.4 0 0 1 -2.4,2.4 h-10.4 a2.4,2.4 0 0 1 -2.4,-2.4 v-8.4 a2.4,2.4 0 0 1 2.4,-2.4 z" />
+
+    <!-- 右耳：圆头 -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M68,41 m-10.4,0 a10.4,10.4 0 1,0 20.8,0 a10.4,10.4 0 1,0 -20.8,0" />
+    <!-- 右耳：柄 -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M62.8,47 h10.4 a2.4,2.4 0 0 1 2.4,2.4 v8.4 a2.4,2.4 0 0 1 -2.4,2.4 h-10.4 a2.4,2.4 0 0 1 -2.4,-2.4 v-8.4 a2.4,2.4 0 0 1 2.4,-2.4 z" />
+
+    <!-- 充电盒本体 -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M27,59 h54 a11.5,11.5 0 0 1 11.5,11.5 v6.5 a11.5,11.5 0 0 1 -11.5,11.5 h-54 a11.5,11.5 0 0 1 -11.5,-11.5 v-6.5 a11.5,11.5 0 0 1 11.5,-11.5 z" />
+
+    <!-- 盒盖缝线（半透明白，避免用深色破坏形状） -->
+    <path
+        android:fillColor="#331A3A8F"
+        android:pathData="M16,69.5 h76 v2.2 h-76 z" />
+
+    <!-- 指示灯 -->
+    <path
+        android:fillColor="#FF3D7BFF"
+        android:pathData="M54,82 m-2.4,0 a2.4,2.4 0 1,0 4.8,0 a2.4,2.4 0 1,0 -4.8,0" />
+</vector>
