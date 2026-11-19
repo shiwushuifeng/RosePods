@@ -122,7 +122,7 @@ object SettingsRedirectHook {
         runCatching {
             activity.startActivity(
                 Intent().apply {
-                    setClassName("moe.chenxy.rosepods", OUR_ACTIVITY)
+                    setClassName("io.github.shiwushuifeng.rosepods", OUR_ACTIVITY)
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     putExtra("from_settings", true)
                 }

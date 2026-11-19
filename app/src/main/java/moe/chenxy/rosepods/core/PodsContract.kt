@@ -14,7 +14,7 @@ package moe.chenxy.rosepods.core
  */
 object PodsContract {
 
-    const val APP_PKG = "moe.chenxy.rosepods"
+    const val APP_PKG = "io.github.shiwushuifeng.rosepods"
     const val BT_PKG = "com.android.bluetooth"
 
     /** 系统侧 → App：状态同步（电量/模式/连接） */
