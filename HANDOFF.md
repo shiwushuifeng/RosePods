@@ -280,9 +280,9 @@ AdapterService.onCreate  ──hook──▶  SystemBridge.attach(service)
 
 | 方向 | Action | Extra |
 | --- | --- | --- |
-| App → 系统 | `moe.chenxy.rosepods.action.STATE_REQ` | —（探测系统侧是否在线） |
-| App → 系统 | `moe.chenxy.rosepods.action.CMD` | `cmd`（ping/setMode/setLevel/cycle/requestInfo/disconnect/setTarget）+ `arg` |
-| 系统 → App | `moe.chenxy.rosepods.action.STATE` | `system`/`connected`/`left`/`right`/`case`/`charging`/`mode`/`address`/`name` |
+| App → 系统 | `io.github.shiwushuifeng.rosepods.action.STATE_REQ` | —（探测系统侧是否在线） |
+| App → 系统 | `io.github.shiwushuifeng.rosepods.action.CMD` | `cmd`（ping/setMode/setLevel/cycle/requestInfo/disconnect/setTarget）+ `arg` |
+| 系统 → App | `io.github.shiwushuifeng.rosepods.action.STATE` | `system`/`connected`/`left`/`right`/`case`/`charging`/`mode`/`address`/`name` |
 
 App 启动时发 `STATE_REQ`，800ms 内收到 `STATE` 即进入系统模式（遥控），否则回退本地直连。
 
@@ -339,7 +339,7 @@ adb logcat -s RosePods:*            # 看 SystemBridge attached / connecting / �
 app/libs/libxposed-api.jar                  从 Maven io.github.libxposed:api:102.0.0 的 aar 里取出
 app/src/main/resources/META-INF/xposed/
 ├── module.prop        minApiVersion=101 / targetApiVersion=101 / staticScope=false
-├── java_init.list     moe.chenxy.rosepods.hook.HookEntry
+├── java_init.list     io.github.shiwushuifeng.rosepods.hook.HookEntry
 └── scope.list         com.android.bluetooth
 ```
 
@@ -462,7 +462,7 @@ RX <设备应答帧>  （原始帧见 private/captures/handoff-raw-frames.txt，
 电量/模式因此没进 UI。下一步用新增的调试命令逐条探测：
 
 ```bash
-adb shell am broadcast -a moe.chenxy.rosepods.action.CMD -p com.android.bluetooth \
+adb shell am broadcast -a io.github.shiwushuifeng.rosepods.action.CMD -p com.android.bluetooth \
   --es cmd raw --es hex FA0C     # 单独读电量
 ```
 
@@ -507,11 +507,11 @@ battery -> system: 37% (L37 R37 C37) readBack=37
 
 ```bash
 # 直接发一条 BODY（协议探测）
-adb shell am broadcast -a moe.chenxy.rosepods.action.CMD -p com.android.bluetooth \
+adb shell am broadcast -a io.github.shiwushuifeng.rosepods.action.CMD -p com.android.bluetooth \
   --es cmd raw --es hex FA0C
 
 # 注入指定电量，验证系统 UI 是否跟着变
-adb shell am broadcast -a moe.chenxy.rosepods.action.CMD -p com.android.bluetooth \
+adb shell am broadcast -a io.github.shiwushuifeng.rosepods.action.CMD -p com.android.bluetooth \
   --es cmd testBattery --ei arg 37
 ```
 
@@ -581,11 +581,11 @@ adb shell am broadcast -a moe.chenxy.rosepods.action.CMD -p com.android.bluetoot
 
 ```bash
 # 注入指定电量，验证系统 UI
-adb shell am broadcast -a moe.chenxy.rosepods.action.CMD -p com.android.bluetooth \
+adb shell am broadcast -a io.github.shiwushuifeng.rosepods.action.CMD -p com.android.bluetooth \
   --es cmd testBattery --ei arg 37
 
 # 直接发 BODY（协议探测）
-adb shell am broadcast -a moe.chenxy.rosepods.action.CMD -p com.android.bluetooth \
+adb shell am broadcast -a io.github.shiwushuifeng.rosepods.action.CMD -p com.android.bluetooth \
   --es cmd raw --es hex FA0C
 ```
 
@@ -958,7 +958,7 @@ blocked com.android.settings.bluetooth.MiuiHeadsetActivity (MiuiHeadsetActivity)
 ```
 pkg=com.tencent.mm          proc=com.android.systemui
 pkg=com.xiaomi.misettings   proc=com.android.systemui
-pkg=moe.chenxy.rosepods     proc=com.android.systemui
+pkg=io.github.shiwushuifeng.rosepods     proc=com.android.systemui
 ```
 
 按 packageName 分发会永远走错分支。**必须用进程名判断**：
@@ -1017,7 +1017,7 @@ hook(MiuiRingerModeLayout#onFinishInflate) {
 行内容：**通透 / 降噪 / 关闭** 三个胶囊按钮（图标 + 文字），
 选中态蓝底白字（`#2C6BED`），未选中深灰（`#2A2A2A`），未连接时整体 45% 透明。
 
-图标通过 `context.createPackageContext("moe.chenxy.rosepods", 0)` 从我们自己 APK 取。
+图标通过 `context.createPackageContext("io.github.shiwushuifeng.rosepods", 0)` 从我们自己 APK 取。
 
 点击 → 广播 `ACTION_CMD` 到蓝牙进程 → SPP 发命令，并本地乐观高亮。
 
@@ -1118,7 +1118,7 @@ volume row size=150x144  cells=[22x103, 23x103, 23x103]   ← 8dp 宽的细条
 | 行注入成功 | `volume panel ANC row injected into FrameLayout` |
 | 按钮尺寸正常 | `volume row size=283x134 cells=[223x103]` |
 | 设置开关可关 | `SettingsBridge.volumeRow` 为 false 时直接 return |
-| 图标取自本 APK | `context.createPackageContext("moe.chenxy.rosepods", 0)` |
+| 图标取自本 APK | `context.createPackageContext("io.github.shiwushuifeng.rosepods", 0)` |
 
 ---
 

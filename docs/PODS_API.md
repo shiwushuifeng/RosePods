@@ -1,7 +1,7 @@
 # CeramicsUPods 接口说明（给前端/UI 的同学）
 
 > 目的：协议层已经写好并实测过，**不要重复造轮子**。
-> 需要联耳机的地方，直接调用 `moe.chenxy.rosepods.pods.CeramicsUPods`。
+> 需要联耳机的地方，直接调用 `io.github.shiwushuifeng.rosepods.pods.CeramicsUPods`。
 > 协议细节见 [PROTOCOL.md](PROTOCOL.md)，踩坑记录见 [FINDINGS.md](FINDINGS.md)。
 
 ## 唯一需要调用的类
@@ -88,7 +88,7 @@ LEVEL_DEEP   = 0x05
 ## 系统侧（LSPosed）也在用同一个类
 
 插件在 `com.android.bluetooth` 进程内用 `CeramicsUPods` 建链，电量写回系统蓝牙栈。
-这条链路对 UI 透明：UI 只需要监听 `moe.chenxy.rosepods.action.STATE` 广播
+这条链路对 UI 透明：UI 只需要监听 `io.github.shiwushuifeng.rosepods.action.STATE` 广播
 （字段定义见 `core/PodsContract.kt`），不要自己再连一次耳机。
 
 ## 不要做的事
